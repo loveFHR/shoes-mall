@@ -1,0 +1,66 @@
+.mr6 {
+  margin-right: 6px;
+}
+.mr8 {
+  margin-right: 8px;
+}
+.mr10 {
+  margin-right: 10px;
+}
+.mr12 {
+  margin-right: 12px;
+}
+.mr14 {
+  margin-right: 14px;
+}
+.mr16 {
+  margin-right: 16px;
+}
+.mr18 {
+  margin-right: 18px;
+}
+.mr20 {
+  margin-right: 20px;
+}
+
+.ml5 {
+  margin-left: 5px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+:root {
+  --layout-header-height: 64px;
+}
+
+.flex-a {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+::-webkit-scrollbar {
+  width: 4px; /* 设置滚动条宽度 */
+  background-color: #f5f5f5; /* 设置滚动条背景色 */
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 2px; /* 设置滚动条边角圆角大小 */
+  background-color: #aaa; /* 设置滚动条中间按钮背景色 */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #888; /* 设置滚动条中间按钮悬停时的背景色 */
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2); /* 添加投影效果 */
+}
+
+.w100 {
+  width: 100%!important;
+}
+
+

@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  shoes-mall-prod:
+    container_name: shoes-mall-service
+    network_mode: "host"
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: shoes-mall-service:1.0
+    restart: always

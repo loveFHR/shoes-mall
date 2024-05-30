@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ewan.mapper.ProductMapper">
+  <resultMap id="BaseResultMap" type="com.ewan.model.entity.Product">
+    <!--@mbg.generated-->
+    <!--@Table product-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="system_base_setting_brand_id" jdbcType="BIGINT" property="systemBaseSettingBrandId" />
+    <result column="system_base_setting_type_id" jdbcType="BIGINT" property="systemBaseSettingTypeId" />
+    <result column="is_on" jdbcType="INTEGER" property="isOn" />
+    <result column="create_by" jdbcType="BIGINT" property="createBy" />
+    <result column="used_price" jdbcType="INTEGER" property="usedPrice" />
+    <result column="now_price" jdbcType="INTEGER" property="nowPrice" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="desc" jdbcType="VARCHAR" property="desc" />
+    <result column="total_num" jdbcType="INTEGER" property="totalNum" />
+    <result column="rest_num" jdbcType="INTEGER" property="restNum" />
+    <result column="cover" jdbcType="VARCHAR" property="cover" />
+    <result column="main_picture" jdbcType="VARCHAR" property="mainPicture" />
+    <result column="is_deleted" jdbcType="INTEGER" property="isDeleted" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+      id,
+      system_base_setting_brand_id,
+      system_base_setting_type_id,
+      is_on,
+      create_by,
+      used_price,
+      now_price,
+      title,
+      `desc`,
+      total_num,
+      rest_num,
+      cover,
+      main_picture,
+      is_deleted,
+      create_time,
+      update_time
+  </sql>
+</mapper>

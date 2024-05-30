@@ -1,0 +1,54 @@
+html,
+body,
+#app,
+.layout {
+  width: 100%;
+  height: 100%;
+  font-weight: 400;
+  background-color: #efefef;
+}
+
+.layout {
+  .layout-container {
+    width: 100%;
+    height: 100%;
+    .aside {
+      overflow: hidden;
+      background-color: #1D2129;
+      transition: width 0.25s;
+      -webkit-transition: width 0.25s;
+      -moz-transition: width 0.25s;
+      -webkit-transition: width 0.25s;
+      -o-transition: width 0.25s;
+      border-right: 1px solid var(--el-border-color-light, #ebeef5);
+      .el-menu {
+        border: 0 !important;
+        .el-menu-item.is-active {
+          background-color: var(--el-color-primary);
+          color: #ffffff;
+        }
+      }
+    }
+    .layout-content-container {
+      .el-header {
+        padding: 0;
+        height: 40px;
+        background-color: #ffffff;
+      }
+      .el-main {
+        padding: 8px;
+        overflow: hidden;
+        overflow-y: auto;
+        box-sizing: border-box;
+        .layout-main {
+          padding: 20px;
+          background-color: #fff;
+          overflow: auto;
+          overflow-x: hidden;
+          border-radius: 4px;
+          position: relative;
+        }
+      }
+    }
+  }
+}

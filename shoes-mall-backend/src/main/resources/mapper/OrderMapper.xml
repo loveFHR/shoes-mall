@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ewan.mapper.OrderMapper">
+    <resultMap id="BaseResultMap" type="com.ewan.model.entity.Order">
+        <!--@mbg.generated-->
+        <!--@Table `order`-->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="product_id" jdbcType="BIGINT" property="productId"/>
+        <result column="order_no" jdbcType="VARCHAR" property="orderNo"/>
+        <result column="user_id" jdbcType="BIGINT" property="userId"/>
+        <result column="system_base_setting_size_id" jdbcType="BIGINT" property="systemBaseSettingSizeId"/>
+        <result column="system_base_setting_color_id" jdbcType="BIGINT" property="systemBaseSettingColorId"/>
+        <result column="pay_type" jdbcType="INTEGER" property="payType"/>
+        <result column="total_price" jdbcType="INTEGER" property="totalPrice"/>
+        <result column="pay_status" jdbcType="INTEGER" property="payStatus"/>
+        <result column="order_status" jdbcType="INTEGER" property="orderStatus"/>
+        <result column="pay_time" jdbcType="TIMESTAMP" property="payTime"/>
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>
+        <result column="is_deleted" jdbcType="INTEGER" property="isDeleted"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="address_id" jdbcType="BIGINT" property="addressId"/>
+        <result column="num" jdbcType="INTEGER" property="num"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id,
+        product_id,
+        order_no,
+        user_id,
+        system_base_setting_size_id,
+        system_base_setting_color_id,
+        pay_type,
+        total_price,
+        pay_status,
+        order_status,
+        pay_time,
+        remark,
+        is_deleted,
+        create_time,
+        update_time,
+        address_id,
+        num
+    </sql>
+    <select id="countOrdersByDateRange" resultType="com.ewan.model.vo.statistic.BaseVo">
+        SELECT DATE_FORMAT(`order`.create_time, '%Y-%m-%d') `date`, COUNT(id) as 'num'
+        FROM `order`
+        where is_deleted = 0
+          and create_time between #{startDate} and #{endDate}
+        group by DATE_FORMAT(`order`.create_time, '%Y-%m-%d')
+    </select>
+
+    <select id="countOrdersByTypeRange" resultType="com.ewan.model.vo.statistic.BaseVo">
+        select s.label as 'date', count(s.id) as 'num'
+        from system_base_setting s
+                 inner join (select system_base_setting_type_id
+                             from `order`
+                                      inner join product p on `order`.product_id = p.id) t
+                            on s.id = t.system_base_setting_type_id
+        group by id
+    </select>
+
+    <select id="countOrdersByProductRange" resultType="com.ewan.model.vo.statistic.BaseVo">
+        select title as 'date', count(title) as 'num'
+        from `order`
+                 left join product p on p.id = `order`.product_id and p.is_deleted = 0
+        where `order`.is_deleted = 0
+        group by title
+    </select>
+
+    <select id="getWaitReplyOrderIdList" resultType="java.lang.Long">
+        select c.order_id
+        from comments c left join  comments cc on c.id = cc .pid where c.pid =0 and cc.id is  null
+    </select>
+</mapper>

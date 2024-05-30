@@ -1,0 +1,21 @@
+.handle-icon-warp {
+  height: var(--layout-header-height);
+  line-height: var(--layout-header-height);
+  .iconfont {
+    color: var(--fangmaster-bg-topBarColor);
+  }
+  .layout-navbars-breadcrumb-user-icon {
+    padding: 0 10px;
+    height: var(--layout-header-height);
+    line-height: var(--layout-header-height);
+  }
+  &:hover {
+    .layout-navbars-breadcrumb-user-icon {
+      background: var(--fangmaster-color-user-hover);
+    }
+    i {
+      display: inline-block;
+      animation: logoAnimation 0.3s ease-in-out;
+    }
+  }
+}

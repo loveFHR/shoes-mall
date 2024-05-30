@@ -1,0 +1,11 @@
+{
+  "outPath": "target/doc",
+  "projectName": "工程实践345",
+  "packageFilters": "com.ewan.controller.*",
+  "openUrl": "http://47.108.52.10:7700/api",
+  "appToken": "e9ccc1985f934c2d8bfbe285d2c81a88",
+  "debugEnvName": "服务器环境",
+  "debugEnvUrl": "http://139.9.181.192:2913/api",
+  "tornaDebug": true,
+  "replace": true
+}
